@@ -7,7 +7,7 @@
  - Authors: CS3217
  - Date: 2018
  */
-struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProtocol,
+public struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProtocol,
 Sequence where Value.Iterator.Element == Key {
 
     var dict: [Key: Value]
@@ -20,18 +20,18 @@ Sequence where Value.Iterator.Element == Key {
     /// - Parameters:
     ///   - graph: A dictionary of node to adjacency list pairs.
     ///   - start: The start node.
-    init?(graph: [Key: Value], start: Key) {
+    public init?(graph: [Key: Value], start: Key) {
         dict = graph
         cur = start
         visitedList = []
         stack = Stack<Key>()
     }
 
-    func makeIterator() -> DepthFirstOrderGenerator<Key, Value> {
+    public func makeIterator() -> DepthFirstOrderGenerator<Key, Value> {
         return self
     }
 
-    mutating func next() -> Key? {
+    public mutating func next() -> Key? {
         var res: Key? //declare res node here so that we can always get it
         if let currentNode = cur { //if the cur is not nil, return its value
             visitedList.append(currentNode) //this node has been visited

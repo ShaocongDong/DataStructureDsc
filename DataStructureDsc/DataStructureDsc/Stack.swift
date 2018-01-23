@@ -7,14 +7,14 @@
  - Date: 2018
  */
 
-struct Stack<T> {
+public struct Stack<T> {
 
     var head: Node<T>?
     var countNum: Int = 0
 
     /// Adds an element to the top of the stack.
     /// - Parameter item: The element to be added to the stack
-    mutating func push(_ item: T) {
+    public mutating func push(_ item: T) {
         if head == nil {
             head = Node<T>(as: item, to: nil) //initialise the head node
         } else {
@@ -27,7 +27,7 @@ struct Stack<T> {
 
     /// Removes the element at the top of the stack and return it.
     /// - Returns: element at the top of the stack
-    mutating func pop() -> T? {
+    public mutating func pop() -> T? {
         guard let nodeToDelete = head
             else { return nil }
         head = head?.next //update head to the next node to remove the original head
@@ -37,22 +37,22 @@ struct Stack<T> {
 
     /// Returns, but does not remove, the element at the top of the stack.
     /// - Returns: element at the top of the stack
-    func peek() -> T? {
+    public func peek() -> T? {
         return head?.value
     }
 
     /// The number of elements currently in the stack.
-    var count: Int {
+    public var count: Int {
         return countNum
     }
 
     /// Whether the stack is empty.
-    var isEmpty: Bool {
+    public var isEmpty: Bool {
         return countNum == 0
     }
 
     /// Removes all elements in the stack.
-    mutating func removeAll() {
+    public mutating func removeAll() {
         head = nil
         countNum = 0
     }
@@ -60,7 +60,7 @@ struct Stack<T> {
     /// Returns an array of the elements in their respective pop order, i.e.
     /// first element in the array is the first element to be popped.
     /// - Returns: array of elements in their respective pop order
-    func toArray() -> [T] {
+    public func toArray() -> [T] {
         var result: [T] = []
         var iTer = head //a node pointer to iterate through this stack
         var index = 0

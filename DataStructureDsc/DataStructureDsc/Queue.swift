@@ -18,7 +18,7 @@ class Node<T> {
     }
 }
 
-struct Queue<T> {
+public struct Queue<T> {
 
     var head: Node<T>?
     var cur: Node<T>?
@@ -26,7 +26,7 @@ struct Queue<T> {
 
     /// Adds an element to the tail of the queue.
     /// - Parameter item: The element to be added to the queue
-    mutating func enqueue(_ item: T) {
+    public mutating func enqueue(_ item: T) {
         if head == nil {
             head = Node<T>(as: item, to: nil) //initialise a new head node
             cur = head //the current node pointer points to the head node
@@ -42,7 +42,7 @@ struct Queue<T> {
 
     /// Removes an element from the head of the queue and return it.
     /// - Returns: item at the head of the queue
-    mutating func dequeue() -> T? {
+    public mutating func dequeue() -> T? {
         if head == nil {
             return nil //the queue is empty
         } else {
@@ -56,22 +56,22 @@ struct Queue<T> {
 
     /// Returns, but does not remove, the element at the head of the queue.
     /// - Returns: item at the head of the queue
-    func peek() -> T? {
+    public func peek() -> T? {
         return head?.value
     }
 
     /// The number of elements currently in the queue.
-    var count: Int {
+    public var count: Int {
         return countNum
     }
 
     /// Whether the queue is empty.
-    var isEmpty: Bool {
+    public var isEmpty: Bool {
         return countNum == 0
     }
 
     /// Removes all elements in the queue.
-    mutating func removeAll() {
+    public mutating func removeAll() {
         head = nil
         countNum = 0
     }
@@ -79,7 +79,7 @@ struct Queue<T> {
     /// Returns an array of the elements in their respective dequeue order, i.e.
     /// first element in the array is the first element to be dequeued.
     /// - Returns: array of elements in their respective dequeue order
-    func toArray() -> [T] {
+    public func toArray() -> [T] {
         var result: [T] = []
         var iTer = head //a node pointer to iterate through the queue
         var index = 0

@@ -7,7 +7,7 @@
  - Authors: CS3217
  - Date: 2018
  */
-struct BreadthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProtocol,
+public struct BreadthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProtocol,
 Sequence where Value.Iterator.Element == Key {
 
     var dict: [Key: Value]
@@ -20,18 +20,18 @@ Sequence where Value.Iterator.Element == Key {
     /// - Parameters:
     ///   - graph: A dictionary of node to adjacency list pairs.
     ///   - start: The start node.
-    init?(graph: [Key: Value], start: Key) {
+    public init?(graph: [Key: Value], start: Key) {
         self.dict = graph
         self.cur = start
         self.visitedList = []
         self.queue = Queue<Key>()
     }
 
-    func makeIterator() -> BreadthFirstOrderGenerator<Key, Value> {
+    public func makeIterator() -> BreadthFirstOrderGenerator<Key, Value> {
         return self
     }
 
-    mutating func next() -> Key? {
+    public mutating func next() -> Key? {
         var res: Key? //declare res node here so that we can always get it
         if let currentNode = cur {
             visitedList.append(currentNode)
