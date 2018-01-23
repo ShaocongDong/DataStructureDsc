@@ -24,6 +24,8 @@ public struct Queue<T> {
     var cur: Node<T>?
     var countNum: Int = 0
 
+    public init() {}
+    
     /// Adds an element to the tail of the queue.
     /// - Parameter item: The element to be added to the queue
     public mutating func enqueue(_ item: T) {

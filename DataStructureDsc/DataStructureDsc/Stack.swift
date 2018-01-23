@@ -12,6 +12,8 @@ public struct Stack<T> {
     var head: Node<T>?
     var countNum: Int = 0
 
+    public init() {}
+
     /// Adds an element to the top of the stack.
     /// - Parameter item: The element to be added to the stack
     public mutating func push(_ item: T) {
